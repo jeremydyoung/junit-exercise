@@ -1,0 +1,14 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+task wrapper(type: Wrapper) { gradleVersion = 2.2 }
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
