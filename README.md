@@ -7,8 +7,11 @@ You should be able to pull this project up in whatever IDE you desire.  A simple
 
 To use gradle to check your work simply execute:
 Linux / Cygwin / Mac OS X
+
 `./gradlew build`
+
 Windows
+
 `gradlew build`
 
 This command will compile all source, and run all tests.
