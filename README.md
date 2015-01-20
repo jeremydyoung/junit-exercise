@@ -3,11 +3,13 @@ junit-exercise
 
 This is a simple repository to allow developers to explore jUnit and Java.
 
-You should be able to pull this project up in whatever IDE you desire.  A simple gradle build is available sholud you desire to use it.
+You should be able to pull this project up in whatever IDE you desire.  A simple gradle build is available should you desire to use it.
 
 To use gradle to check your work simply execute:
-
-./gradlew build
+Linux / Cygwin / Mac OS X
+`./gradlew build`
+Windows
+`gradlew build`
 
 This command will compile all source, and run all tests.
 
