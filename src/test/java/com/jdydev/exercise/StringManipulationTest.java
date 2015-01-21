@@ -16,19 +16,19 @@ public class StringManipulationTest {
 
     @Test
     public void testConcatNull() {
-        assertThat(null, equalTo(sm.concatList(null)));
+        assertThat(sm.concatList(null), equalTo(null));
     }
 
     @Test
     public void testConcatEmptyList() {
-        assertThat("", equalTo(sm.concatList(new ArrayList<String>())));
+        assertThat(sm.concatList(new ArrayList<String>()), equalTo(""));
     }
 
     @Test
     public void testConcatOneItem() {
         List<String> l = new ArrayList<String>();
         l.add(foo);
-        assertThat(foo, equalTo(sm.concatList(l)));
+        assertThat(sm.concatList(l), equalTo(foo));
     }
 
     @Test
@@ -36,7 +36,7 @@ public class StringManipulationTest {
         List<String> l = new ArrayList<String>();
         l.add(foo);
         l.add(bar);
-        assertThat(foo + bar, equalTo(sm.concatList(l)));
+        assertThat(sm.concatList(l), equalTo(foo + bar));
     }
 
     @Test
@@ -45,7 +45,7 @@ public class StringManipulationTest {
         l.add(foo);
         l.add(null);
         l.add(bar);
-        assertThat(foo + bar, equalTo(sm.concatList(l)));
+        assertThat(sm.concatList(l), equalTo(foo + bar));
     }
 
     @Test
@@ -54,7 +54,7 @@ public class StringManipulationTest {
         l.add(foo);
         l.add("");
         l.add(bar);
-        assertThat(foo + bar, equalTo(sm.concatList(l)));
+        assertThat(sm.concatList(l), equalTo(foo + bar));
     }
 
     @Test(timeout = 100)
@@ -70,56 +70,56 @@ public class StringManipulationTest {
 
     @Test
     public void testNullGetFirstThree() {
-        assertThat(null, equalTo(sm.getFirstThree(null)));
+        assertThat(sm.getFirstThree(null), equalTo(null));
     }
 
     @Test
     public void testEmptyGetFirstThree() {
-        assertThat("", equalTo(sm.getFirstThree("")));
+        assertThat(sm.getFirstThree(""), equalTo(""));
     }
 
     @Test
     public void testThreeGetFirstThree() {
-        assertThat(foo, equalTo(sm.getFirstThree(foo)));
+        assertThat(sm.getFirstThree(foo), equalTo(foo));
     }
 
     @Test
     public void testMoreGetFirstThree() {
-        assertThat(foo, equalTo(sm.getFirstThree(foo + bar)));
+        assertThat(sm.getFirstThree(foo + bar), equalTo(foo));
     }
 
     @Test
     public void testGetFirstOne() {
-        assertThat("f", equalTo(sm.getFirstX(1, foo)));
+        assertThat(sm.getFirstX(1, foo), equalTo("f"));
     }
 
     @Test
     public void testParseBooleanNull() {
-        assertThat(false, equalTo(sm.parseBoolean(null, false)));
+        assertThat(sm.parseBoolean(null, false), equalTo(false));
     }
 
     @Test
     public void testParseBooleanEmpty() {
-        assertThat(false, equalTo(sm.parseBoolean("", false)));
+        assertThat(sm.parseBoolean("", true), equalTo(true));
     }
 
     @Test
     public void testParseBooleanFoo() {
-        assertThat(false, equalTo(sm.parseBoolean(foo, false)));
+        assertThat(sm.parseBoolean(foo, true), equalTo(true));
     }
 
     @Test
     public void testParseBooleanTrue() {
-        assertThat(true, equalTo(sm.parseBoolean("true", false)));
+        assertThat(sm.parseBoolean("true", false), equalTo(true));
     }
 
     @Test
     public void testParseBooleanFalse() {
-        assertThat(false, equalTo(sm.parseBoolean("false", true)));
+        assertThat(sm.parseBoolean("false", true), equalTo(false));
     }
 
     @Test
     public void testParseBooleanFalse2() {
-        assertThat(false, equalTo(sm.parseBoolean("fAlse", true)));
+        assertThat(sm.parseBoolean("fAlse", true), equalTo(false));
     }
 }
